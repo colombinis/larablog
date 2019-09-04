@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  db:
+    container_name: db-blog
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: larablog
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 123456
+    ports:
+      - 3306:3306
+    volumes:
+      - ./docker/db/laravel.conf:/etc/mysql/conf.d/laravel.conf
+      - ./docker/db/data:/var/lib/mysql
+    
